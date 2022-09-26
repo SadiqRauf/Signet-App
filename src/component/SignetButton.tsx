@@ -4,19 +4,20 @@ import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 
 interface ButtonProps {
   onPress?: () => void;
+  title: string
 }
-export const SignetButton: React.FC<ButtonProps> = ({onPress}) => {
+export const SignetButton: React.FC<ButtonProps> = ({onPress, title}) => {
   return (
     <TouchableOpacity onPress={onPress} style={styles.button1}>
-      <Text style={styles.text1}>SCAN A TAG</Text>
+      <Text style={styles.text1}>{title}</Text>
     </TouchableOpacity>
   );
 };
 
-export const SignetButtonOutline: React.FC<ButtonProps> = ({onPress}) => {
+export const SignetButtonOutline: React.FC<ButtonProps> = ({onPress, title}) => {
   return (
     <TouchableOpacity onPress={onPress} style={styles.button2}>
-      <Text style={styles.text2}>SCAN A TAG</Text>
+      <Text style={styles.text2}>{title}</Text>
     </TouchableOpacity>
   );
 };
@@ -42,11 +43,13 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     lineHeight: 24,
     color: colors.signetColor,
+    fontFamily:'Poppins-Medium'
   },
   text2: {
     fontSize: 16,
     fontWeight: '400',
     lineHeight: 24,
     color: colors.yellowSecondary,
+    fontFamily:'Poppins-Medium'
   },
 });

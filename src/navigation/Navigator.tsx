@@ -1,76 +1,100 @@
-import React, {useState, useEffect} from 'react';
-
+import React from 'react';
+import {Image, Platform} from 'react-native';
+import {colors} from '../theme/theme';
+import LandingScreen from '../screens/LandingScreen';
+import CommunityScreen from '../screens/community/CommunityScreen';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import LandingScreen from '../screens/LandingScreen';
 import VerificationScreen from '../screens/verification/VerificationScreen';
-import { Image } from 'react-native';
-import CommunityScreen from '../screens/community/CommunityScreen';
-import { colors } from '../theme/theme';
-
+import ProfileScreen from '../screens/profile/ProfileScreen';
+import PeopleScreen from '../screens/people/PeopleScreen';
+import { MainBottomTabParamList } from '../utils/navigationTypes';
 
 const Stack = createNativeStackNavigator();
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator<MainBottomTabParamList>();
 
- export const BottomTabs = () => {
+export const BottomTabs = () => {
   return (
     <Tab.Navigator
-   
       tabBarOptions={{
-        // showLabel: false,
+        inactiveTintColor: colors.white,
         activeTintColor: colors.yellowPrimary,
-    //     inactiveBackgroundColor:Colors.backgroundColor,
-    //     style: {
-    //   backgroundColor: Colors.backgroundColor,
-    //   borderTopColor:Colors.backgroundColor, 
-    // },
+        inactiveBackgroundColor: colors.signetPrimary,
+        activeBackgroundColor: colors.signetPrimary,
+        style: {
+          backgroundColor: colors.signetPrimary,
+          borderTopColor: colors.signetPrimary,
+        },
       }}>
       <Tab.Screen
         name="VERIFY"
         component={VerificationScreen}
         options={{
-         
-          tabBarIcon: ({focused}) => (
-            focused ?
-            <Image source={require('../assets/verifySelected.png')} style={{height:24, width:24}}/>
-            :
-            <Image source={require('../assets/verifySelected.png')} style={{height:21, width:21}}/>
+          headerShown: false,
+          tabBarIcon: () => (
+            <Image
+              source={require('../assets/verifySelected.png')}
+              style={{height: 24, width: 24}}
+            />
           ),
         }}
       />
       <Tab.Screen
-        name="Community"
+        name="COMMUNITY"
         component={CommunityScreen}
         options={{
-          tabBarLabel: 'Location',
-          tabBarIcon: ({focused}) => (
-            focused ?
-            <Image source={require('../assets/community.png')} style={{height:24, width:25}}/>
-            :
-            <Image source={require('../assets/community.png')} style={{height:21, width:22}}/>
+          headerShown: false,
+          tabBarIcon: () => (
+            <Image
+              source={require('../assets/community.png')}
+              style={{height: 21, width: 22}}
+            />
           ),
         }}
       />
-  
-  
+      <Tab.Screen
+        name="PEOPLE"
+        component={PeopleScreen}
+        options={{
+          headerShown: false,
+          tabBarIcon: () => (
+            <Image
+              source={require('../assets/people.png')}
+              style={{height: 21, width: 22}}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="PROFILE"
+        component={ProfileScreen}
+        options={{
+          headerShown: false,
+          tabBarIcon: () => (
+            <Image
+              source={require('../assets/community.png')}
+              style={{height: 21, width: 22}}
+            />
+          ),
+        }}
+      />
     </Tab.Navigator>
   );
 };
 
 const Navigator = () => {
-
   return (
     <Stack.Navigator initialRouteName="LandingScreen">
-       <Stack.Screen
-          name="LandingScreen"
-          component={LandingScreen}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Home"
-          component={BottomTabs}
-          options={{ headerShown: false }}
-        />
+      <Stack.Screen
+        name="LandingScreen"
+        component={LandingScreen}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Home"
+        component={BottomTabs}
+        options={{headerShown: false}}
+      />
     </Stack.Navigator>
   );
 };

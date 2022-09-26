@@ -1,5 +1,6 @@
 import React, {type PropsWithChildren} from 'react';
 import {
+  LogBox,
   SafeAreaView,
   StatusBar,
   StyleSheet,
@@ -18,13 +19,10 @@ import { NavigationContainer } from "@react-navigation/native";
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
+  LogBox.ignoreAllLogs()
 
   return (
-    <SafeAreaView style={styles.sectionContainer}>
+    <View style={styles.sectionContainer}>
       <StatusBar
         barStyle='light-content'
         backgroundColor={colors.signetColor}
@@ -32,14 +30,14 @@ const App = () => {
        <NavigationContainer>
         <Navigator />
       </NavigationContainer>
-    </SafeAreaView>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   sectionContainer: {
    flex:1,
-   backgroundColor:colors.signetColor
+  //  backgroundColor:colors.signetColor
   },
   
 });

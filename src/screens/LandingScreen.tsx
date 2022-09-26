@@ -22,9 +22,9 @@ const LandingScreen: React.FC<{navigation: any}> = ({navigation}) => {
             <Text style={styles.text}>Scan a tag to get started</Text>
           </View>
           <View style={{marginBottom: 20}}>
-            <SignetButton onPress={() => navigation.navigate('Home')} />
+            <SignetButton title='SCAN A TAG' onPress={() => navigation.navigate('Home')} />
           </View>
-          <SignetButtonOutline />
+          <SignetButtonOutline title='EXPLORE OUR STORE'/>
         </View>
       </SafeAreaView>
     </View>
@@ -58,5 +58,6 @@ const styles = StyleSheet.create({
     lineHeight: 24,
     textAlign: 'center',
     color: colors.white,
+    fontFamily:'Poppins-Medium'
   },
 });
