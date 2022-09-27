@@ -7,9 +7,7 @@ import OwnerDetailsCard from '../../component/OwnerDetailsCard';
 
 const VerificationScreen = () => {
   return (
-    <View style={styles.container}>
-      <SafeAreaView style={{backgroundColor:colors.signetColor}}/>
-      <SafeAreaView  style={{flex:1, alignItems: 'center', backgroundColor:colors.signetColor}}>
+    <SafeAreaView style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.logosContainer}>
           <SignetHeaderLogo />
@@ -42,8 +40,7 @@ const VerificationScreen = () => {
         </View>
         <View style={styles.box}/>
       </ScrollView>
-      </SafeAreaView>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -52,6 +49,7 @@ export default VerificationScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor:colors.signetColor
   },
   shirt: {
     height: 103,
