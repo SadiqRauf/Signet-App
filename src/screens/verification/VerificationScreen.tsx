@@ -1,14 +1,14 @@
 import {Image, SafeAreaView, ScrollView, StyleSheet, Text, View} from 'react-native';
-import React from 'react';
+import React, { FC } from 'react';
 import {colors} from '../../theme/theme';
 import {SignetHeaderLogo, YellowLogo} from '../../Icons/Icons';
 import {SignetButton, SignetButtonOutline} from '../../component/SignetButton';
 import OwnerDetailsCard from '../../component/OwnerDetailsCard';
 
-const VerificationScreen = () => {
+const VerificationScreen:FC<{navigation:any}> = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView showsVerticalScrollIndicator={false}>
+      <ScrollView showsVerticalScrollIndicator={false} style={{paddingHorizontal:12}}>
         <View style={styles.logosContainer}>
           <SignetHeaderLogo />
         </View>
@@ -32,7 +32,7 @@ const VerificationScreen = () => {
         </View>
         <View style={styles.cardContainer}>
           <View style={styles.btnBox}>
-            <SignetButtonOutline title='DETAILS'/>
+            <SignetButtonOutline onPress={()=>navigation.navigate('Details')} title='DETAILS'/>
           </View>
           <View style={styles.btnBox}>
             <SignetButton title='VIEW ON METAVERSE'/>
@@ -49,7 +49,7 @@ export default VerificationScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor:colors.signetColor
+    backgroundColor:colors.bgColor
   },
   shirt: {
     height: 103,

@@ -5,6 +5,7 @@ export const colors={
     signetSecondary:'#908F95',
     yellowPrimary:'#D7A241',
     yellowSecondary:'#FBCE71',
-    greenColor:'#2AD300'
+    greenColor:'#2AD300',
+    bgColor:'#1E1E1E'
 
 }

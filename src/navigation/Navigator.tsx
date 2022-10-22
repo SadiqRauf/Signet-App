@@ -9,6 +9,7 @@ import VerificationScreen from '../screens/verification/VerificationScreen';
 import ProfileScreen from '../screens/profile/ProfileScreen';
 import PeopleScreen from '../screens/people/PeopleScreen';
 import { MainBottomTabParamList } from '../utils/navigationTypes';
+import DetailsScreen from '../screens/verification/DetailsScreen';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator<MainBottomTabParamList>();
@@ -93,6 +94,11 @@ const Navigator = () => {
       <Stack.Screen
         name="Home"
         component={BottomTabs}
+        options={{headerShown: false}}
+      />
+       <Stack.Screen
+        name="Details"
+        component={DetailsScreen}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

@@ -153,3 +153,12 @@ export const PeopleIcon=()=>{
 
     )
 }
+
+export const BackArrow=()=>{
+  return(
+    <Svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<Path d="M30 13.125H7.18125L17.6625 2.64375L15 0L0 15L15 30L17.6437 27.3563L7.18125 16.875H30V13.125Z" fill="#D7A241"/>
+</Svg>
+
+  )
+}
